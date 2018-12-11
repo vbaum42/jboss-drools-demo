@@ -1,0 +1,12 @@
+//created on: Dec 10, 2018
+package rs.devoteam.driverslicence
+
+rule "Application was made this year"
+
+    when
+        $a : Application( dateApplied < "01-jan-2018" )
+    then
+        $a.setValid( false );
+
+end
+

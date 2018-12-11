@@ -1,0 +1,13 @@
+//created on: Dec 10, 2018
+package rs.devoteam.firealarm
+
+rule "Raise the alarm when we have one or more fires"
+
+    when
+        exists Fire()
+    then
+        insert (new Alarm());
+        System.out.println( "Raise the alarm" );
+
+end
+
