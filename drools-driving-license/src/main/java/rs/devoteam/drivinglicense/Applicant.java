@@ -1,7 +1,10 @@
 package rs.devoteam.drivinglicense;
 
-public class Applicant {
+import java.io.Serializable;
 
+public class Applicant implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private int age;
 	private boolean valid;

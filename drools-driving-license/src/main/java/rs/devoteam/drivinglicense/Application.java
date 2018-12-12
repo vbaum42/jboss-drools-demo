@@ -1,9 +1,11 @@
 package rs.devoteam.drivinglicense;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Application {
+public class Application implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private Date dateApplied;
 	private boolean valid;
 	
