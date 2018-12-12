@@ -1,0 +1,18 @@
+//created on: Dec 10, 2018
+package rs.devoteam.cashflow
+
+rule "Increase balance for credits"
+	agenda-group "calculation"
+	ruleflow-group "calculation"
+    when
+        $ap : AccountPeriod()
+        $acc : Account( $accountNo : accountNo )
+        CashFlow( 	type == "CREDIT",
+        			accountNo == $accountNo,
+        			date >= $ap.start && <= $ap.end,
+        			$amount : amount )
+    then
+        $acc.setBalance($acc.getBalance() + $amount);
+		System.out.println("Balance increased for " + $amount + ", current amount: " + $acc.getBalance());
+end
+
