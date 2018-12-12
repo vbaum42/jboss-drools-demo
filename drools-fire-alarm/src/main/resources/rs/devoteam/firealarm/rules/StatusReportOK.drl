@@ -1,0 +1,13 @@
+//created on: Dec 10, 2018
+package rs.devoteam.firealarm
+
+rule "Status output when things are ok"
+	salience -50
+    when
+        not Alarm()
+        not Sprinkler( on == true )
+    then
+        System.out.println( "Everything is ok" );
+
+end
+
